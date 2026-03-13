@@ -1,0 +1,93 @@
+aid: microsoft-cognitive-services
+url: https://raw.githubusercontent.com/api-evangelist/microsoft-cognitive-services/refs/heads/main/apis.yml
+apis:
+  - aid: microsoft-cognitive-services:computer-vision-api
+    name: Azure AI Vision API
+    tags:
+      - Computer Vision
+      - Image Analysis
+      - OCR
+      - Azure AI
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://{endpoint}.cognitiveservices.azure.com/
+    humanURL: https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/
+    properties:
+      - url: https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/
+        type: Documentation
+    description: >-
+      Azure AI Vision provides image analysis, OCR, spatial analysis, and
+      face detection capabilities. Developers can extract text from images,
+      generate image captions, detect objects, and analyze visual content
+      using pre-trained AI models through REST APIs and client SDKs.
+  - aid: microsoft-cognitive-services:speech-api
+    name: Azure AI Speech API
+    tags:
+      - Speech
+      - Text to Speech
+      - Speech to Text
+      - Azure AI
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://{region}.api.cognitive.microsoft.com/
+    humanURL: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/
+    properties:
+      - url: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/
+        type: Documentation
+    description: >-
+      Azure AI Speech provides speech-to-text, text-to-speech, speech
+      translation, and speaker recognition capabilities. Developers can
+      transcribe audio, synthesize natural-sounding speech, translate
+      spoken language in real-time, and identify speakers.
+  - aid: microsoft-cognitive-services:language-api
+    name: Azure AI Language API
+    tags:
+      - NLP
+      - Text Analytics
+      - Language Understanding
+      - Azure AI
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://{endpoint}.cognitiveservices.azure.com/
+    humanURL: https://learn.microsoft.com/en-us/azure/ai-services/language-service/
+    properties:
+      - url: https://learn.microsoft.com/en-us/azure/ai-services/language-service/
+        type: Documentation
+    description: >-
+      Azure AI Language provides natural language processing capabilities
+      including sentiment analysis, entity recognition, key phrase
+      extraction, language detection, text summarization, and question
+      answering. It supports custom models for domain-specific NLP tasks.
+  - aid: microsoft-cognitive-services:openai-api
+    name: Azure OpenAI Service API
+    tags:
+      - OpenAI
+      - GPT
+      - Large Language Models
+      - Azure AI
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://{resource}.openai.azure.com/
+    humanURL: https://learn.microsoft.com/en-us/azure/ai-services/openai/
+    properties:
+      - url: https://learn.microsoft.com/en-us/azure/ai-services/openai/
+        type: Documentation
+      - url: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
+        type: API Reference
+    description: >-
+      Azure OpenAI Service provides REST API access to OpenAI models
+      including GPT-4, GPT-3.5, DALL-E, and Whisper with enterprise-grade
+      security and compliance. It supports chat completions, text
+      generation, embeddings, image generation, and audio transcription.
+common:
+  - type: Portal
+    url: https://portal.azure.com/
+  - type: Pricing
+    url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
+  - type: SDKs
+    url: https://learn.microsoft.com/en-us/azure/ai-services/
+  - type: Terms of Service
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  - type: Privacy Policy
+    url: https://privacy.microsoft.com/en-us/privacystatement
+  - type: Support
+    url: https://support.microsoft.com/
+maintainers:
+  - name: Kin Lane
+    email: kin@apievangelist.com
