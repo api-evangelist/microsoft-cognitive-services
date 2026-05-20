@@ -82,6 +82,8 @@ apis:
       - type: APIReference
         url: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
 common:
+  - type: GitHubOrganization
+    url: https://github.com/Azure
   - type: Portal
     url: https://portal.azure.com/
   - type: Pricing
