@@ -1,0 +1,328 @@
+{
+  "item": [
+    {
+      "id": "ee706194-f03e-4518-8006-49887f308406",
+      "name": "ImageAnalysis",
+      "description": {
+        "content": "Analyze images for visual features",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "97f27e6a-b4b3-49a7-94c3-1a6f15eb76af",
+          "name": "Analyze an image",
+          "request": {
+            "name": "Analyze an image",
+            "description": {},
+            "url": {
+              "path": [
+                "computervision",
+                "imageanalysis:analyze"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-04-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "features",
+                  "value": "<string>",
+                  "description": "Visual features to extract; required if model-name is not provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "features",
+                  "value": "<string>",
+                  "description": "Visual features to extract; required if model-name is not provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "model-name",
+                  "value": "<string>",
+                  "description": "Custom trained model name; required if features is not provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "en"
+                },
+                {
+                  "disabled": false,
+                  "key": "smartcrops-aspect-ratios",
+                  "value": "<string>",
+                  "description": "Comma-separated aspect ratios for smartCrops (0.75-1.8)"
+                },
+                {
+                  "disabled": false,
+                  "key": "gender-neutral-caption",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Per-region Cognitive Services endpoint",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5acae6af-8c87-4bfb-bf4e-fbdcf7d09e76",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computervision",
+                    "imageanalysis:analyze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-04-01-preview"
+                    },
+                    {
+                      "key": "features",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "features",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model-name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "en"
+                    },
+                    {
+                      "key": "smartcrops-aspect-ratios",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender-neutral-caption",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Per-region Cognitive Services endpoint",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"modelVersion\": \"string\",\n  \"metadata\": {\n    \"width\": 4930,\n    \"height\": 4880\n  },\n  \"captionResult\": {\n    \"text\": \"string\",\n    \"confidence\": 1591.3242927533433\n  },\n  \"denseCaptionsResult\": {\n    \"values\": [\n      {\n        \"text\": \"string\",\n        \"confidence\": 6019.133305269004,\n        \"boundingBox\": {\n          \"x\": 7305,\n          \"y\": 4938,\n          \"w\": 8240,\n          \"h\": 6460\n        }\n      },\n      {\n        \"text\": \"string\",\n        \"confidence\": 3885.355764869345,\n        \"boundingBox\": {\n          \"x\": 9220,\n          \"y\": 3452,\n          \"w\": 9008,\n          \"h\": 8472\n        }\n      }\n    ]\n  },\n  \"tagsResult\": {\n    \"values\": [\n      {\n        \"name\": \"string\",\n        \"confidence\": 9210.681954218588\n      },\n      {\n        \"name\": \"string\",\n        \"confidence\": 3538.939171942377\n      }\n    ]\n  },\n  \"objectsResult\": {\n    \"values\": [\n      {\n        \"id\": \"string\",\n        \"boundingBox\": {\n          \"x\": 4623,\n          \"y\": 5423,\n          \"w\": 6164,\n          \"h\": 6221\n        },\n        \"tags\": [\n          {\n            \"name\": \"string\",\n            \"confidence\": 2042.9050460186559\n          },\n          {\n            \"name\": \"string\",\n            \"confidence\": 8347.141295523055\n          }\n        ]\n      },\n      {\n        \"id\": \"string\",\n        \"boundingBox\": {\n          \"x\": 2122,\n          \"y\": 3367,\n          \"w\": 4137,\n          \"h\": 9182\n        },\n        \"tags\": [\n          {\n            \"name\": \"string\",\n            \"confidence\": 1742.949917457407\n          },\n          {\n            \"name\": \"string\",\n            \"confidence\": 8740.127833119916\n          }\n        ]\n      }\n    ]\n  },\n  \"peopleResult\": {\n    \"values\": [\n      {\n        \"boundingBox\": {\n          \"x\": 9125,\n          \"y\": 8208,\n          \"w\": 4565,\n          \"h\": 4129\n        },\n        \"confidence\": 3636.1617751728336\n      },\n      {\n        \"boundingBox\": {\n          \"x\": 8484,\n          \"y\": 4495,\n          \"w\": 8114,\n          \"h\": 6860\n        },\n        \"confidence\": 7116.761007554402\n      }\n    ]\n  },\n  \"readResult\": {\n    \"content\": \"string\",\n    \"stringIndexType\": \"string\"\n  },\n  \"smartCropsResult\": {\n    \"values\": [\n      {\n        \"aspectRatio\": 2732.3355713683427,\n        \"boundingBox\": {\n          \"x\": 5820,\n          \"y\": 9626,\n          \"w\": 2480,\n          \"h\": 1779\n        }\n      },\n      {\n        \"aspectRatio\": 9500.932515822386,\n        \"boundingBox\": {\n          \"x\": 2218,\n          \"y\": 828,\n          \"w\": 4452,\n          \"h\": 6219\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8b535d1-e176-415f-bfde-ea4343bf5a16",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computervision",
+                    "imageanalysis:analyze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-04-01-preview"
+                    },
+                    {
+                      "key": "features",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "features",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model-name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "en"
+                    },
+                    {
+                      "key": "smartcrops-aspect-ratios",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender-neutral-caption",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Per-region Cognitive Services endpoint",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\",\n    \"innererror\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Per-region Cognitive Services endpoint",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "westus.api.cognitive.microsoft.com",
+      "key": "endpoint"
+    },
+    {
+      "type": "string",
+      "value": "https://{{endpoint}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0bde9a8b-b837-4abd-a0a4-c2ed2d22faf1",
+    "name": "Azure AI Vision - Image Analysis REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Azure AI Vision Image Analysis 4.0 REST API. Synchronously analyzes an\ninput image and returns combined results: tags, objects, caption,\ndenseCaptions, read (OCR), smartCrops, and people detection. Supports\nimage stream upload (image/* or application/octet-stream) or a JSON\nbody with a publicly reachable URL.\n\nAuthentication uses the subscription key in the Ocp-Apim-Subscription-Key\nheader, or a Microsoft Entra ID OAuth 2.0 bearer token (Cognitive\nServices User role).\n\nThe Azure AI Services umbrella also includes Speech, Language, and\nAzure OpenAI; only the Image Analysis surface is fully described here.\n\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}
