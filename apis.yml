@@ -4,7 +4,7 @@ name: Microsoft Cognitive Services
 description: >-
   Microsoft Cognitive Services (Azure AI Services) provides AI APIs for vision,
   speech, language, and OpenAI model access.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Azure AI
   - Computer Vision
@@ -20,7 +20,7 @@ apis:
     name: Azure AI Vision API
     description: >-
       Image analysis, OCR, spatial analysis, and face detection capabilities.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/
     baseURL: https://westus.api.cognitive.microsoft.com/
     tags:
@@ -36,7 +36,7 @@ apis:
     description: >-
       Speech-to-text, text-to-speech, speech translation, and speaker
       recognition.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/
     baseURL: https://westus.stt.speech.microsoft.com/
     tags:
@@ -52,7 +52,7 @@ apis:
     description: >-
       Natural language processing including sentiment analysis, entity
       recognition, and summarization.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://learn.microsoft.com/en-us/azure/ai-services/language-service/
     baseURL: https://api.cognitive.microsoft.com/
     tags:
@@ -68,7 +68,7 @@ apis:
     description: >-
       REST API access to OpenAI models including GPT-4, DALL-E, and Whisper
       with enterprise security.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://learn.microsoft.com/en-us/azure/ai-services/openai/
     baseURL: https://api.cognitive.microsoft.com/
     tags:
