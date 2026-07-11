@@ -82,6 +82,8 @@ apis:
       - type: APIReference
         url: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
 common:
+  - type: OAuthScopes
+    url: scopes/microsoft-cognitive-services-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/Azure
   - type: Portal
@@ -96,6 +98,8 @@ common:
     url: https://privacy.microsoft.com/en-us/privacystatement
   - type: Support
     url: https://support.microsoft.com/
+  - url: https://azure.microsoft.com/en-us/blog/feed/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
