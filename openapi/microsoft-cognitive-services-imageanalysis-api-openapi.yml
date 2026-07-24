@@ -1,0 +1,301 @@
+openapi: 3.1.0
+info:
+  title: Azure AI Vision - Image Analysis REST ImageAnalysis API
+  description: 'Azure AI Vision Image Analysis 4.0 REST API. Synchronously analyzes an
+
+    input image and returns combined results: tags, objects, caption,
+
+    denseCaptions, read (OCR), smartCrops, and people detection. Supports
+
+    image stream upload (image/* or application/octet-stream) or a JSON
+
+    body with a publicly reachable URL.
+
+
+    Authentication uses the subscription key in the Ocp-Apim-Subscription-Key
+
+    header, or a Microsoft Entra ID OAuth 2.0 bearer token (Cognitive
+
+    Services User role).
+
+
+    The Azure AI Services umbrella also includes Speech, Language, and
+
+    Azure OpenAI; only the Image Analysis surface is fully described here.
+
+    '
+  version: 2023-04-01-preview
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: Microsoft Terms of Use
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{endpoint}
+  description: Cognitive Services regional endpoint
+  variables:
+    endpoint:
+      default: westus.api.cognitive.microsoft.com
+      description: Per-region Cognitive Services endpoint
+security:
+- subscription_key: []
+- azure_auth: []
+tags:
+- name: ImageAnalysis
+  description: Analyze images for visual features
+paths:
+  /computervision/imageanalysis:analyze:
+    post:
+      tags:
+      - ImageAnalysis
+      summary: Analyze an image
+      operationId: imageAnalysis_analyze
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2023-04-01-preview
+      - name: features
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - tags
+            - caption
+            - denseCaptions
+            - objects
+            - read
+            - smartCrops
+            - people
+        description: Visual features to extract; required if model-name is not provided
+      - name: model-name
+        in: query
+        schema:
+          type: string
+        description: Custom trained model name; required if features is not provided
+      - name: language
+        in: query
+        schema:
+          type: string
+          default: en
+      - name: smartcrops-aspect-ratios
+        in: query
+        schema:
+          type: string
+        description: Comma-separated aspect ratios for smartCrops (0.75-1.8)
+      - name: gender-neutral-caption
+        in: query
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageUrl'
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+          image/jpeg:
+            schema:
+              type: string
+              format: binary
+          image/png:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageAnalysisResult'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    DetectedObject:
+      type: object
+      properties:
+        id:
+          type: string
+        boundingBox:
+          $ref: '#/components/schemas/BoundingBox'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            target:
+              type: string
+            innererror:
+              type: object
+    DetectedPerson:
+      type: object
+      properties:
+        boundingBox:
+          $ref: '#/components/schemas/BoundingBox'
+        confidence:
+          type: number
+          format: double
+    ImageUrl:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Publicly reachable URL of an image
+    DenseCaptionsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DenseCaption'
+    ImageAnalysisResult:
+      type: object
+      properties:
+        modelVersion:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ImageMetadata'
+        captionResult:
+          $ref: '#/components/schemas/CaptionResult'
+        denseCaptionsResult:
+          $ref: '#/components/schemas/DenseCaptionsResult'
+        tagsResult:
+          $ref: '#/components/schemas/TagsResult'
+        objectsResult:
+          $ref: '#/components/schemas/ObjectsResult'
+        peopleResult:
+          $ref: '#/components/schemas/PeopleResult'
+        readResult:
+          $ref: '#/components/schemas/ReadResult'
+        smartCropsResult:
+          $ref: '#/components/schemas/SmartCropsResult'
+    SmartCropsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              aspectRatio:
+                type: number
+                format: double
+              boundingBox:
+                $ref: '#/components/schemas/BoundingBox'
+    DenseCaption:
+      type: object
+      properties:
+        text:
+          type: string
+        confidence:
+          type: number
+          format: double
+        boundingBox:
+          $ref: '#/components/schemas/BoundingBox'
+    CaptionResult:
+      type: object
+      properties:
+        text:
+          type: string
+        confidence:
+          type: number
+          format: double
+    ImageMetadata:
+      type: object
+      properties:
+        width:
+          type: integer
+        height:
+          type: integer
+    ObjectsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DetectedObject'
+    TagsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    ReadResult:
+      type: object
+      properties:
+        content:
+          type: string
+        pages:
+          type: array
+          items:
+            type: object
+        stringIndexType:
+          type: string
+    BoundingBox:
+      type: object
+      properties:
+        x:
+          type: integer
+        y:
+          type: integer
+        w:
+          type: integer
+        h:
+          type: integer
+    PeopleResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DetectedPerson'
+    Tag:
+      type: object
+      properties:
+        name:
+          type: string
+        confidence:
+          type: number
+          format: double
+  securitySchemes:
+    subscription_key:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Cognitive Services subscription key
+    azure_auth:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://cognitiveservices.azure.com/.default: Cognitive Services access
