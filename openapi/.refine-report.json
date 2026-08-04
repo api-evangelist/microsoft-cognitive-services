@@ -1,0 +1,14 @@
+{
+  "provider": "microsoft-cognitive-services",
+  "sources": [
+    "microsoft-cognitive-services-imageanalysis-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-cognitive-services-imageanalysis-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
