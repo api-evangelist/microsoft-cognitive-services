@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure AI Vision - Image Analysis REST ImageAnalysis API",
+    "version": "2023-04-01-preview"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ImageAnalysis",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Analyze an image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{endpoint}/computervision/imageanalysis:analyze",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "features",
+                "value": "",
+                "type": "query",
+                "description": "Visual features to extract; required if model-name is not provided"
+              },
+              {
+                "name": "model-name",
+                "value": "",
+                "type": "query",
+                "description": "Custom trained model name; required if features is not provided"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "smartcrops-aspect-ratios",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated aspect ratios for smartCrops (0.75-1.8)"
+              },
+              {
+                "name": "gender-neutral-caption",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Analyze an image"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
