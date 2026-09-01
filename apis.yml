@@ -75,7 +75,7 @@ apis:
   baseURL: https://westus.stt.speech.microsoft.com/
   tags:
   - Speech
-  - Text to Speech
+  - Text-to-Speech
   - Speech-to-Text
   - Azure AI
   tags_raw:
@@ -124,7 +124,7 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/
   baseURL: https://westus.api.cognitive.microsoft.com/
   tags:
-  - ImageAnalysis
+  - Image Analysis
   tags_raw:
   - ImageAnalysis
   properties:
