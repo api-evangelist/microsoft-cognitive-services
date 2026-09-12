@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Azure AI Vision - Image Analysis REST ImageAnalysis API
+  title: Azure AI Vision - REST Image Analysis API
   description: 'Azure AI Vision Image Analysis 4.0 REST API. Synchronously analyzes an
 
     input image and returns combined results: tags, objects, caption,
@@ -151,11 +151,79 @@ components:
               type: string
             innererror:
               type: object
+    BoundingBox:
+      type: object
+      properties:
+        x:
+          type: integer
+        y:
+          type: integer
+        w:
+          type: integer
+        h:
+          type: integer
+    TagsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    PeopleResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DetectedPerson'
+    SmartCropsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              aspectRatio:
+                type: number
+                format: double
+              boundingBox:
+                $ref: '#/components/schemas/BoundingBox'
+    DenseCaptionsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DenseCaption'
     DetectedPerson:
       type: object
       properties:
         boundingBox:
           $ref: '#/components/schemas/BoundingBox'
+        confidence:
+          type: number
+          format: double
+    ImageMetadata:
+      type: object
+      properties:
+        width:
+          type: integer
+        height:
+          type: integer
+    Tag:
+      type: object
+      properties:
+        name:
+          type: string
+        confidence:
+          type: number
+          format: double
+    CaptionResult:
+      type: object
+      properties:
+        text:
+          type: string
         confidence:
           type: number
           format: double
@@ -168,13 +236,6 @@ components:
           type: string
           format: uri
           description: Publicly reachable URL of an image
-    DenseCaptionsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DenseCaption'
     ImageAnalysisResult:
       type: object
       properties:
@@ -196,19 +257,6 @@ components:
           $ref: '#/components/schemas/ReadResult'
         smartCropsResult:
           $ref: '#/components/schemas/SmartCropsResult'
-    SmartCropsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            type: object
-            properties:
-              aspectRatio:
-                type: number
-                format: double
-              boundingBox:
-                $ref: '#/components/schemas/BoundingBox'
     DenseCaption:
       type: object
       properties:
@@ -219,35 +267,6 @@ components:
           format: double
         boundingBox:
           $ref: '#/components/schemas/BoundingBox'
-    CaptionResult:
-      type: object
-      properties:
-        text:
-          type: string
-        confidence:
-          type: number
-          format: double
-    ImageMetadata:
-      type: object
-      properties:
-        width:
-          type: integer
-        height:
-          type: integer
-    ObjectsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DetectedObject'
-    TagsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
     ReadResult:
       type: object
       properties:
@@ -259,32 +278,13 @@ components:
             type: object
         stringIndexType:
           type: string
-    BoundingBox:
-      type: object
-      properties:
-        x:
-          type: integer
-        y:
-          type: integer
-        w:
-          type: integer
-        h:
-          type: integer
-    PeopleResult:
+    ObjectsResult:
       type: object
       properties:
         values:
           type: array
           items:
-            $ref: '#/components/schemas/DetectedPerson'
-    Tag:
-      type: object
-      properties:
-        name:
-          type: string
-        confidence:
-          type: number
-          format: double
+            $ref: '#/components/schemas/DetectedObject'
   securitySchemes:
     subscription_key:
       type: apiKey
