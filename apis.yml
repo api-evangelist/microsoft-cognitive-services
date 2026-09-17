@@ -118,18 +118,16 @@ apis:
     url: https://learn.microsoft.com/en-us/azure/ai-services/openai/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
-- aid: microsoft-cognitive-services:microsoft-cognitive-services-imageanalysis-api
-  name: Microsoft Cognitive Services ImageAnalysis API
+- aid: microsoft-cognitive-services:microsoft-cognitive-services-image-analysis-api
+  name: Microsoft Cognitive Services Image Analysis API
   description: Analyze images for visual features
   humanURL: https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/
   baseURL: https://westus.api.cognitive.microsoft.com/
   tags:
   - Image Analysis
-  tags_raw:
-  - ImageAnalysis
   properties:
   - type: OpenAPI
-    url: openapi/microsoft-cognitive-services-imageanalysis-api-openapi.yml
+    url: openapi/microsoft-cognitive-services-image-analysis-api-openapi.yml
 common:
   - type: Website
     url: https://www.microsoft.com/
