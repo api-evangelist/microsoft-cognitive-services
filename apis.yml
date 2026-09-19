@@ -111,6 +111,11 @@ apis:
   tags:
   - OpenAI
   - GPT
+  - LLM
+  - Azure AI
+  tags_raw:
+  - OpenAI
+  - GPT
   - Large Language Models
   - Azure AI
   properties:
