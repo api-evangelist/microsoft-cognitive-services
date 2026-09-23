@@ -1,29 +1,7 @@
 openapi: 3.2.0
 info:
   title: Azure AI Vision - REST Image Analysis API
-  description: 'Azure AI Vision Image Analysis 4.0 REST API. Synchronously analyzes an
-
-    input image and returns combined results: tags, objects, caption,
-
-    denseCaptions, read (OCR), smartCrops, and people detection. Supports
-
-    image stream upload (image/* or application/octet-stream) or a JSON
-
-    body with a publicly reachable URL.
-
-
-    Authentication uses the subscription key in the Ocp-Apim-Subscription-Key
-
-    header, or a Microsoft Entra ID OAuth 2.0 bearer token (Cognitive
-
-    Services User role).
-
-
-    The Azure AI Services umbrella also includes Speech, Language, and
-
-    Azure OpenAI; only the Image Analysis surface is fully described here.
-
-    '
+  description: Azure AI Vision Image Analysis 4.0 REST API.
   version: 2023-04-01-preview
   contact:
     name: Kin Lane
@@ -42,13 +20,13 @@ security:
 - subscription_key: []
 - azure_auth: []
 tags:
-- name: ImageAnalysis
+- name: Image Analysis
   description: Analyze images for visual features
 paths:
   /computervision/imageanalysis:analyze:
     post:
       tags:
-      - ImageAnalysis
+      - Image Analysis
       summary: Analyze an image
       operationId: imageAnalysis_analyze
       parameters:
@@ -126,6 +104,132 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
+    DenseCaption:
+      type: object
+      properties:
+        text:
+          type: string
+        confidence:
+          type: number
+          format: double
+        boundingBox:
+          $ref: '#/components/schemas/BoundingBox'
+    BoundingBox:
+      type: object
+      properties:
+        x:
+          type: integer
+        y:
+          type: integer
+        w:
+          type: integer
+        h:
+          type: integer
+    TagsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    ObjectsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DetectedObject'
+    DenseCaptionsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DenseCaption'
+    ImageAnalysisResult:
+      type: object
+      properties:
+        modelVersion:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ImageMetadata'
+        captionResult:
+          $ref: '#/components/schemas/CaptionResult'
+        denseCaptionsResult:
+          $ref: '#/components/schemas/DenseCaptionsResult'
+        tagsResult:
+          $ref: '#/components/schemas/TagsResult'
+        objectsResult:
+          $ref: '#/components/schemas/ObjectsResult'
+        peopleResult:
+          $ref: '#/components/schemas/PeopleResult'
+        readResult:
+          $ref: '#/components/schemas/ReadResult'
+        smartCropsResult:
+          $ref: '#/components/schemas/SmartCropsResult'
+    SmartCropsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              aspectRatio:
+                type: number
+                format: double
+              boundingBox:
+                $ref: '#/components/schemas/BoundingBox'
+    PeopleResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DetectedPerson'
+    DetectedPerson:
+      type: object
+      properties:
+        boundingBox:
+          $ref: '#/components/schemas/BoundingBox'
+        confidence:
+          type: number
+          format: double
+    ImageMetadata:
+      type: object
+      properties:
+        width:
+          type: integer
+        height:
+          type: integer
+    ImageUrl:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Publicly reachable URL of an image
+    ReadResult:
+      type: object
+      properties:
+        content:
+          type: string
+        pages:
+          type: array
+          items:
+            type: object
+        stringIndexType:
+          type: string
+    CaptionResult:
+      type: object
+      properties:
+        text:
+          type: string
+        confidence:
+          type: number
+          format: double
     DetectedObject:
       type: object
       properties:
@@ -151,66 +255,6 @@ components:
               type: string
             innererror:
               type: object
-    BoundingBox:
-      type: object
-      properties:
-        x:
-          type: integer
-        y:
-          type: integer
-        w:
-          type: integer
-        h:
-          type: integer
-    TagsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
-    PeopleResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DetectedPerson'
-    SmartCropsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            type: object
-            properties:
-              aspectRatio:
-                type: number
-                format: double
-              boundingBox:
-                $ref: '#/components/schemas/BoundingBox'
-    DenseCaptionsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DenseCaption'
-    DetectedPerson:
-      type: object
-      properties:
-        boundingBox:
-          $ref: '#/components/schemas/BoundingBox'
-        confidence:
-          type: number
-          format: double
-    ImageMetadata:
-      type: object
-      properties:
-        width:
-          type: integer
-        height:
-          type: integer
     Tag:
       type: object
       properties:
@@ -219,72 +263,6 @@ components:
         confidence:
           type: number
           format: double
-    CaptionResult:
-      type: object
-      properties:
-        text:
-          type: string
-        confidence:
-          type: number
-          format: double
-    ImageUrl:
-      type: object
-      required:
-      - url
-      properties:
-        url:
-          type: string
-          format: uri
-          description: Publicly reachable URL of an image
-    ImageAnalysisResult:
-      type: object
-      properties:
-        modelVersion:
-          type: string
-        metadata:
-          $ref: '#/components/schemas/ImageMetadata'
-        captionResult:
-          $ref: '#/components/schemas/CaptionResult'
-        denseCaptionsResult:
-          $ref: '#/components/schemas/DenseCaptionsResult'
-        tagsResult:
-          $ref: '#/components/schemas/TagsResult'
-        objectsResult:
-          $ref: '#/components/schemas/ObjectsResult'
-        peopleResult:
-          $ref: '#/components/schemas/PeopleResult'
-        readResult:
-          $ref: '#/components/schemas/ReadResult'
-        smartCropsResult:
-          $ref: '#/components/schemas/SmartCropsResult'
-    DenseCaption:
-      type: object
-      properties:
-        text:
-          type: string
-        confidence:
-          type: number
-          format: double
-        boundingBox:
-          $ref: '#/components/schemas/BoundingBox'
-    ReadResult:
-      type: object
-      properties:
-        content:
-          type: string
-        pages:
-          type: array
-          items:
-            type: object
-        stringIndexType:
-          type: string
-    ObjectsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DetectedObject'
   securitySchemes:
     subscription_key:
       type: apiKey
