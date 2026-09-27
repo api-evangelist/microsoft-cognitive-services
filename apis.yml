@@ -32,11 +32,11 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-cognitive-services.png
 tags:
   - Azure AI
-  - Computer-Vision
+  - Computer Vision
   - Speech
   - NLP
   - OpenAI
-  - Machine-Learning
+  - Machine Learning
 tags_raw:
   - Azure AI
   - Computer Vision
@@ -44,6 +44,8 @@ tags_raw:
   - NLP
   - OpenAI
   - Machine Learning
+  - Computer-Vision
+  - Machine-Learning
 created: '2026-03-13'
 modified: '2026-04-28'
 specificationVersion: '0.23'
@@ -55,7 +57,7 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/
   baseURL: https://westus.api.cognitive.microsoft.com/
   tags:
-  - Computer-Vision
+  - Computer Vision
   - Image Analysis
   - OCR
   - Azure AI
@@ -64,6 +66,7 @@ apis:
   - Image Analysis
   - OCR
   - Azure AI
+  - Computer-Vision
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/
