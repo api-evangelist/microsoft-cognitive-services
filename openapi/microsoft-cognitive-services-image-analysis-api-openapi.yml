@@ -104,79 +104,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ImageUrl:
-      type: object
-      required:
-      - url
-      properties:
-        url:
-          type: string
-          format: uri
-          description: Publicly reachable URL of an image
-    DenseCaption:
-      type: object
-      properties:
-        text:
-          type: string
-        confidence:
-          type: number
-          format: double
-        boundingBox:
-          $ref: '#/components/schemas/BoundingBox'
-    ReadResult:
-      type: object
-      properties:
-        content:
-          type: string
-        pages:
-          type: array
-          items:
-            type: object
-        stringIndexType:
-          type: string
-    CaptionResult:
-      type: object
-      properties:
-        text:
-          type: string
-        confidence:
-          type: number
-          format: double
-    ObjectsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DetectedObject'
-    ImageMetadata:
-      type: object
-      properties:
-        width:
-          type: integer
-        height:
-          type: integer
-    PeopleResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DetectedPerson'
-    DenseCaptionsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DenseCaption'
-    TagsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
     DetectedObject:
       type: object
       properties:
@@ -188,19 +115,61 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
-    SmartCropsResult:
+    DenseCaption:
+      type: object
+      properties:
+        text:
+          type: string
+        confidence:
+          type: number
+          format: double
+        boundingBox:
+          $ref: '#/components/schemas/BoundingBox'
+    CaptionResult:
+      type: object
+      properties:
+        text:
+          type: string
+        confidence:
+          type: number
+          format: double
+    PeopleResult:
       type: object
       properties:
         values:
           type: array
           items:
-            type: object
-            properties:
-              aspectRatio:
-                type: number
-                format: double
-              boundingBox:
-                $ref: '#/components/schemas/BoundingBox'
+            $ref: '#/components/schemas/DetectedPerson'
+    TagsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    ImageMetadata:
+      type: object
+      properties:
+        width:
+          type: integer
+        height:
+          type: integer
+    DenseCaptionsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DenseCaption'
+    ImageUrl:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Publicly reachable URL of an image
     DetectedPerson:
       type: object
       properties:
@@ -209,6 +178,20 @@ components:
         confidence:
           type: number
           format: double
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            target:
+              type: string
+            innererror:
+              type: object
     BoundingBox:
       type: object
       properties:
@@ -220,6 +203,13 @@ components:
           type: integer
         h:
           type: integer
+    ObjectsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DetectedObject'
     Tag:
       type: object
       properties:
@@ -228,6 +218,17 @@ components:
         confidence:
           type: number
           format: double
+    ReadResult:
+      type: object
+      properties:
+        content:
+          type: string
+        pages:
+          type: array
+          items:
+            type: object
+        stringIndexType:
+          type: string
     ImageAnalysisResult:
       type: object
       properties:
@@ -249,20 +250,19 @@ components:
           $ref: '#/components/schemas/ReadResult'
         smartCropsResult:
           $ref: '#/components/schemas/SmartCropsResult'
-    ErrorResponse:
+    SmartCropsResult:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
-            target:
-              type: string
-            innererror:
-              type: object
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              aspectRatio:
+                type: number
+                format: double
+              boundingBox:
+                $ref: '#/components/schemas/BoundingBox'
   securitySchemes:
     subscription_key:
       type: apiKey
