@@ -137,6 +137,12 @@ apis:
   - type: OpenAPI
     url: openapi/microsoft-cognitive-services-image-analysis-api-openapi.yml
 common:
+  - type: Plans
+    url: plans/microsoft-cognitive-services-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/microsoft-cognitive-services-rate-limits.yml
+  - type: FinOps
+    url: finops/microsoft-cognitive-services-finops.yml
   - type: Website
     url: https://www.microsoft.com/
   - type: AgenticAccess
