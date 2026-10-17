@@ -104,17 +104,20 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ReadResult:
+    ObjectsResult:
       type: object
       properties:
-        content:
-          type: string
-        pages:
+        values:
           type: array
           items:
-            type: object
-        stringIndexType:
-          type: string
+            $ref: '#/components/schemas/DetectedObject'
+    TagsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
     ImageAnalysisResult:
       type: object
       properties:
@@ -136,11 +139,29 @@ components:
           $ref: '#/components/schemas/ReadResult'
         smartCropsResult:
           $ref: '#/components/schemas/SmartCropsResult'
-    Tag:
+    DetectedObject:
       type: object
       properties:
-        name:
+        id:
           type: string
+        boundingBox:
+          $ref: '#/components/schemas/BoundingBox'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    ImageMetadata:
+      type: object
+      properties:
+        width:
+          type: integer
+        height:
+          type: integer
+    DetectedPerson:
+      type: object
+      properties:
+        boundingBox:
+          $ref: '#/components/schemas/BoundingBox'
         confidence:
           type: number
           format: double
@@ -157,13 +178,62 @@ components:
                 format: double
               boundingBox:
                 $ref: '#/components/schemas/BoundingBox'
-    TagsResult:
+    PeopleResult:
       type: object
       properties:
         values:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/DetectedPerson'
+    ImageUrl:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Publicly reachable URL of an image
+    ReadResult:
+      type: object
+      properties:
+        content:
+          type: string
+        pages:
+          type: array
+          items:
+            type: object
+        stringIndexType:
+          type: string
+    DenseCaptionsResult:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/DenseCaption'
+    Tag:
+      type: object
+      properties:
+        name:
+          type: string
+        confidence:
+          type: number
+          format: double
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            target:
+              type: string
+            innererror:
+              type: object
     DenseCaption:
       type: object
       properties:
@@ -174,13 +244,6 @@ components:
           format: double
         boundingBox:
           $ref: '#/components/schemas/BoundingBox'
-    PeopleResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DetectedPerson'
     CaptionResult:
       type: object
       properties:
@@ -200,69 +263,6 @@ components:
           type: integer
         h:
           type: integer
-    DenseCaptionsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DenseCaption'
-    DetectedPerson:
-      type: object
-      properties:
-        boundingBox:
-          $ref: '#/components/schemas/BoundingBox'
-        confidence:
-          type: number
-          format: double
-    ImageUrl:
-      type: object
-      required:
-      - url
-      properties:
-        url:
-          type: string
-          format: uri
-          description: Publicly reachable URL of an image
-    ImageMetadata:
-      type: object
-      properties:
-        width:
-          type: integer
-        height:
-          type: integer
-    ObjectsResult:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/DetectedObject'
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
-            target:
-              type: string
-            innererror:
-              type: object
-    DetectedObject:
-      type: object
-      properties:
-        id:
-          type: string
-        boundingBox:
-          $ref: '#/components/schemas/BoundingBox'
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
   securitySchemes:
     subscription_key:
       type: apiKey
