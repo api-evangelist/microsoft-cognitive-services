@@ -34,7 +34,7 @@ tags:
   - Azure AI
   - Computer Vision
   - Speech
-  - NLP
+  - Natural Language Processing
   - OpenAI
   - Machine Learning
 tags_raw:
@@ -97,6 +97,11 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/azure/ai-services/language-service/
   baseURL: https://api.cognitive.microsoft.com/
   tags:
+  - Natural Language Processing
+  - Text Analytics
+  - Language Understanding
+  - Azure AI
+  tags_raw:
   - NLP
   - Text Analytics
   - Language Understanding
