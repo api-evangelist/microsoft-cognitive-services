@@ -1,4 +1,4 @@
-# Microsoft Cognitive Services (microsoft-cognitive-services)
+# Microsoft Cognitive Services
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,116 +66,129 @@
 
 Microsoft Cognitive Services (Azure AI Services) provides AI APIs for vision, speech, language, and OpenAI model access.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/microsoft-cognitive-services/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/microsoft-cognitive-services/refs/heads/main/apis.yml)
+**Areas:** Azure AI · Computer Vision · Speech · Natural Language Processing · OpenAI · Machine Learning
 
-## Tags
+## Microsoft Cognitive Services on APIs.io
 
-- Azure AI
-- Computer Vision
-- Speech
-- NLP
-- OpenAI
-- Machine Learning
+Everything profiled for Microsoft Cognitive Services is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/microsoft-cognitive-services/](https://apis.io/providers/microsoft-cognitive-services/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-04-28
+- [Azure AI Vision API](https://apis.io/apis/microsoft-cognitive-services/vision/) — Image analysis, OCR, spatial analysis, and face detection capabilities.
+- [Azure AI Speech API](https://apis.io/apis/microsoft-cognitive-services/speech/) — Speech-to-text, text-to-speech, speech translation, and speaker recognition.
+- [Azure AI Language API](https://apis.io/apis/microsoft-cognitive-services/language/) — Natural language processing including sentiment analysis, entity recognition, and summarization.
+- [Azure OpenAI Service API](https://apis.io/apis/microsoft-cognitive-services/openai/) — REST API access to OpenAI models including GPT-4, DALL-E, and Whisper with enterprise security.
+- [Microsoft Cognitive Services Image Analysis API](https://apis.io/apis/microsoft-cognitive-services/microsoft-cognitive-services-image-analysis-api/) — Analyze images for visual features
 
-## APIs
+### Published properties
 
-### Azure AI Vision API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Image analysis, OCR, spatial analysis, and face detection capabilities.
+#### Agentic access (1)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/)
-- **Base URL:** `https://westus.api.cognitive.microsoft.com/`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Microsoft Cognitive Services Agentic Access](https://apis.io/agentic-access/microsoft-cognitive-services/microsoft-cognitive-services-agentic-access/)
 
-- Computer Vision
-- Image Analysis
-- OCR
-- Azure AI
+#### Collections (2)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/)
-- [Postman Collection](collections/microsoft-cognitive-services.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-cognitive-services.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Azure AI Vision - Image Analysis REST API](https://apis.io/collections/microsoft-cognitive-services/open-microsoft-cognitive-services/)
+- [Azure AI Vision - Image Analysis REST ImageAnalysis API](https://apis.io/collections/microsoft-cognitive-services/open-microsoft-cognitive-services-imageanalysis-api/)
 
-### Azure AI Speech API
+#### Security (2)
 
-Speech-to-text, text-to-speech, speech translation, and speaker recognition.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://learn.microsoft.com/en-us/azure/ai-services/speech-service/](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/)
-- **Base URL:** `https://westus.stt.speech.microsoft.com/`
+- [Microsoft Cognitive Services Authentication](https://apis.io/security/microsoft-cognitive-services/microsoft-cognitive-services-authentication/)
+- [Microsoft Cognitive Services Domain Security](https://apis.io/security/microsoft-cognitive-services/microsoft-cognitive-services-domain-security/)
 
-#### Tags
+#### OAuth scopes (1)
 
-- Speech
-- Text to Speech
-- Speech to Text
-- Azure AI
+The permissions the API asks for.
 
-#### Properties
+- [Microsoft Cognitive Services Scopes](https://apis.io/scopes/microsoft-cognitive-services/microsoft-cognitive-services-scopes/)
 
-- [Documentation](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/)
-- [Postman Collection](collections/microsoft-cognitive-services.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-cognitive-services.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Azure AI Language API
+Published plans, tiers and prices.
 
-Natural language processing including sentiment analysis, entity recognition, and summarization.
+- [Microsoft Cognitive Services Plans Pricing](https://apis.io/plans/microsoft-cognitive-services/microsoft-cognitive-services-plans-pricing/)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/azure/ai-services/language-service/](https://learn.microsoft.com/en-us/azure/ai-services/language-service/)
-- **Base URL:** `https://api.cognitive.microsoft.com/`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- NLP
-- Text Analytics
-- Language Understanding
-- Azure AI
+- [Microsoft Cognitive Services Rate Limits](https://apis.io/rate-limits/microsoft-cognitive-services/microsoft-cognitive-services-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://learn.microsoft.com/en-us/azure/ai-services/language-service/)
-- [Postman Collection](collections/microsoft-cognitive-services.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-cognitive-services.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-### Azure OpenAI Service API
+- [Microsoft Cognitive Services Finops](https://apis.io/finops/microsoft-cognitive-services/microsoft-cognitive-services-finops/)
 
-REST API access to OpenAI models including GPT-4, DALL-E, and Whisper with enterprise security.
+## Where to find this API
 
-- **Human URL:** [https://learn.microsoft.com/en-us/azure/ai-services/openai/](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
-- **Base URL:** `https://api.cognitive.microsoft.com/`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- OpenAI
-- GPT
-- Large Language Models
-- Azure AI
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
-- [API Reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
-- [Postman Collection](collections/microsoft-cognitive-services.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-cognitive-services.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/Azure)
-- [Portal](https://portal.azure.com/)
+- [Website](https://www.microsoft.com/)
 - [Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/)
-- [S D Ks](https://learn.microsoft.com/en-us/azure/ai-services/)
-- [Terms of Service](https://www.microsoft.com/en-us/legal/terms-of-use)
-- [Privacy Policy](https://privacy.microsoft.com/en-us/privacystatement)
 - [Support](https://support.microsoft.com/)
+- [Blog](https://azure.microsoft.com/en-us/blog/feed/)
+- [Terms of service](https://www.microsoft.com/en-us/legal/terms-of-use)
+- [Privacy policy](https://privacy.microsoft.com/en-us/privacystatement)
+- [GitHub](https://github.com/Azure)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 41.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 52.4 |
+| Access clarity | 39.5 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 27.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/microsoft-cognitive-services/](https://apis.io/providers/microsoft-cognitive-services/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Microsoft Cognitive Services: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/microsoft-cognitive-services/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
